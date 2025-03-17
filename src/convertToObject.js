@@ -8,14 +8,14 @@
 function convertToObject(sourceString) {
   const styles = {};
 
-  sourceString.split(';').map((el) => {
+  sourceString.split(';').forEach((el) => {
     const line = el.split(':');
 
     if (line.length === 2) {
       line[0] = line[0].trim();
       line[1] = line[1].trim();
+      styles[line[0]] = line[1];
     }
-    styles[line[0]] = line[1];
   });
 
   return styles;
